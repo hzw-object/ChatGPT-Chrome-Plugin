@@ -1,0 +1,18 @@
+{
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.fixAll.markdownlint": true
+    },
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "cSpell.words": [
+      "chatgpt",
+      "davinci",
+      "iconify",
+      "newtab",
+      "openai",
+      "unplugin",
+      "webextension",
+      "webpackbar"
+    ]
+  }

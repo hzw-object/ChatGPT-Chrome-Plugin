@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "my-vue3-plugin",
+  "description": "基于vue3.x版本的chrome插件",
+  "version": "1.0.0",
+  "icons": {
+    "16": "assets/images/icon16.png",
+    "48": "assets/images/icon48.png",
+    "128": "assets/images/icon128.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; connect-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'wasm-unsafe-eval'; img-src 'self' data:"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["bookmarks", "storage", "activeTab", "tabs", "scripting", "cookies"],
+  "host_permissions": ["https://*.openai.com/"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "chrome_url_overrides": {
+    "newtab": "tabs.html"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  }
+}
