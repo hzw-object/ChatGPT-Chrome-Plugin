@@ -4,9 +4,9 @@
   "description": "基于vue3.x版本的chrome插件",
   "version": "1.0.0",
   "icons": {
-    "16": "assets/images/icon16.png",
-    "48": "assets/images/icon48.png",
-    "128": "assets/images/icon128.png"
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
   },
   "content_security_policy": {
     "extension_pages": "default-src 'self'; connect-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'wasm-unsafe-eval'; img-src 'self' data:"

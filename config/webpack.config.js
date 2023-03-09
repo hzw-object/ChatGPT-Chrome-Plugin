@@ -84,7 +84,10 @@ module.exports = [
         chunks: ['tabs'],
       }),
       new CopyWebpackPlugin({
-        patterns: [{ from: './src/public/manifest.json', to: '../dist' }],
+        patterns: [
+          { from: './src/public/manifest.json', to: '../dist' },
+          { from: './src/assets/images', to: '../dist/assets' },
+        ],
       }),
       new VueLoaderPlugin(),
       // new BundleAnalyzerPlugin(),
