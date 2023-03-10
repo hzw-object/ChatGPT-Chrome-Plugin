@@ -24,6 +24,11 @@ module.exports = [
       path: path.resolve(__dirname, '../dist'),
       filename: 'js/[name].js',
     },
+    // 编译缓存
+    cache: {
+      type: 'filesystem',
+      allowCollectingMemory: true,
+    },
     resolve: {
       alias: {
         '@/': path.resolve(__dirname, './src'),

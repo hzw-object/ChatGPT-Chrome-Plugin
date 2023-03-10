@@ -1,8 +1,9 @@
+$theme-color: #626aef;
 .margin-t-10 {
   margin-top: 10px;
 }
-.margin-l-10{
-    margin-left: 10px;
+.margin-l-10 {
+  margin-left: 10px;
 }
 .margin-l-20 {
   margin-left: 20px;
@@ -18,8 +19,14 @@
 .width-30 {
   width: 30px;
 }
-.height-30{
-    height: 30px;
+.height-30 {
+  height: 30px;
+}
+.height-40 {
+  height: 40px;
+}
+.width-80 {
+  width: 80px;
 }
 .width-800 {
   width: 800px;
@@ -34,12 +41,44 @@
 .flex-1 {
   flex: 1;
 }
-.color-374151{
-    color:#374151 ;
+.color-374151 {
+  color: #374151;
 }
-.font-s-14{
-    font-size: 14px;
+.font-s-14 {
+  font-size: 14px;
 }
-.margin-tb-10{
-    margin: 10px 0;
+.margin-tb-10 {
+  margin: 10px 0;
+}
+.el-input__inner {
+  height: 40px;
+  line-height: 40px;
+}
+.el-input-group__append button.el-button {
+  border-color: var(--el-button-border-color);
+  background-color: var(--el-button-bg-color);
+  color: var(--el-color-white);
+  border-radius: 0 4px 4px 0px;
+}
+.el-input-group__append button.el-button:hover {
+  border-color: var(--el-button-hover-border-color);
+  background-color: var(--el-button-hover-bg-color);
+  color: var(--el-color-white);
+}
+
+.el-input__wrapper.is-focus {
+  box-shadow: 0 0 0 1px $theme-color inset;
+}
+.el-input-group__prepend {
+  background-color: #fff;
+  padding: 0 10px;
+  box-shadow: 1px 0 0 0 var(--el-input-border-color) inset,
+    0 1px 0 0 var(--el-input-border-color) inset, 0 -1px 0 0 var(--el-input-border-color) inset;
+}
+.cursor-pointer{
+  cursor: pointer
+}
+.flex-center{
+  display: flex;
+  justify-content: center
 }
