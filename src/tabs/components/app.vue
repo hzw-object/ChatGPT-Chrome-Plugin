@@ -11,9 +11,9 @@
             autofocus
           >
             <template #prepend>
-              <div class="input-prepend cursor-pointer">
+              <div class="input-prepend cursor-pointer" @click="showDialog">
                 <img :src="Auth" alt="" srcset="" class="width-30 height-30" />
-                <el-icon><CaretBottom /></el-icon>
+                <el-icon class="arrow" :class="{ caretActive: isMask }"><CaretBottom /></el-icon>
               </div>
             </template>
           </el-input>
@@ -40,13 +40,28 @@
           </el-input>
         </div>
       </el-card>
-      <div class="engine-list">
-        <div class="item" v-for="item of logoList" :key="item.id">
-          <img :src="item.logo" alt="" srcset="" class="logo" />
-          <span class="title">{{ item.title }}</span>
+      <div class="mask" v-if="isMask" @click="closeDialog">
+        <div class="engine-list">
+          <div class="item" v-for="item of logoList" :key="item.id">
+            <img :src="item.logo" alt="" srcset="" class="logo" />
+            <span class="title">{{ item.title }}</span>
+            <svg
+              class="icon-checked"
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="none"
+            >
+              <rect width="14" height="14" rx="7" fill="#626aef" />
+              <path
+                d="M3 7.90942L4.23077 6.6973L6.07692 7.90942C7 6.39426 9.76923 4.37406 11 3.66699V4.87911C9.76923 5.60639 7.20513 8.81851 6.07692 10.3337L3 7.90942Z"
+                fill="white"
+              />
+            </svg>
+          </div>
         </div>
       </div>
-      <div class="mask" v-if="isMask"></div>
     </div>
   </div>
 </template>
@@ -75,6 +90,12 @@
   };
   const clearMessage = () => {
     message.value = '';
+  };
+  const closeDialog = () => {
+    isMask.value = false;
+  };
+  const showDialog = () => {
+    isMask.value = true;
   };
 </script>
 
@@ -109,7 +130,10 @@
     align-items: center;
     justify-content: space-between;
   }
-  .active {
+  .arrow {
+    transition: transform 0.15s linear;
+  }
+  .caretActive {
     transform: rotate(180deg);
   }
   img {
@@ -136,7 +160,6 @@
     position: absolute;
     top: 4.6rem;
     left: 30%;
-    background-color: var(--jjext-color-secondary-bg);
     border-radius: 2px;
     width: calc(40vw - 20px);
     padding: 0.6rem 0.6rem 0 0.6rem;
@@ -162,12 +185,20 @@
     .title {
       margin-top: 0.6rem;
     }
+    .icon-checked {
+      position: absolute;
+      right: 0.3rem;
+      top: 0.3rem;
+      background-size: 100%;
+      width: 1rem;
+      height: 1rem;
+    }
   }
   .engine-list .item.active,
   .engine-list .item:hover {
     font-weight: 500;
-    background-color: #e8f3ff;
-    color: #1e80ff;
+    background-color: rgba(129, 136, 242, 0.2);
+    color: rgb(129, 136, 242);
   }
   .input-with-select {
     margin: 0 auto;
