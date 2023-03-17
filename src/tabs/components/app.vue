@@ -1,7 +1,7 @@
 <template>
   <div class="background">
     <div class="content margin-auto">
-      <el-card class="margin-t-10">
+      <!-- <el-card class="margin-t-10">
         <div> </div>
         <div class="flex-center">
           <el-input
@@ -12,17 +12,22 @@
           >
             <template #prepend>
               <div class="input-prepend cursor-pointer" @click="showDialog">
-                <img :src="Auth" alt="" srcset="" class="width-30 height-30" />
+                <img :src="Openai" alt="" srcset="" class="width-30 height-30" />
                 <el-icon class="arrow" :class="{ caretActive: isMask }"><CaretBottom /></el-icon>
               </div>
             </template>
           </el-input>
         </div>
-      </el-card>
+      </el-card> -->
       <el-card class="overflow-scroll flex-1 margin-t-10" v-loading="loading">
         <div class="flex-bet message-list" v-for="(item, index) in sessionList" :key="index">
           <div class="image-position">
-            <img :src="Auth" alt="" srcset="" class="width-30 height-30" />
+            <img
+              :src="item.role === 'assistant' ? Openai : Head"
+              alt=""
+              srcset=""
+              class="width-30 height-30"
+            />
           </div>
           <div class="flex-1 font-s-14">
             <v-md-preview :text="item.content" />
@@ -67,15 +72,16 @@
 </template>
 
 <script setup lang="ts">
-  import Auth from '../../assets/images/baidu1.png';
-  import { CaretBottom } from '@element-plus/icons-vue';
+  import Openai from '../../assets/images/openai.png';
+  import Head from '../../assets/images/head.png';
+  // import { CaretBottom } from '@element-plus/icons-vue';
   import { fetchChatAPI } from '../../utils/request';
   import { ChatCompletionRequestMessage } from 'openai';
   import { logoList } from './const';
   const message = ref<string>('');
-  const searchValue = ref<string>('');
+  // const searchValue = ref<string>('');
   const loading = ref<boolean>(false);
-  const isMask = ref<boolean>(true);
+  const isMask = ref<boolean>(false);
   const sessionList = reactive<ChatCompletionRequestMessage[]>([]);
   const submit = async () => {
     sessionList.push({ role: 'user', content: message.value });
@@ -94,9 +100,9 @@
   const closeDialog = () => {
     isMask.value = false;
   };
-  const showDialog = () => {
-    isMask.value = true;
-  };
+  // const showDialog = () => {
+  //   isMask.value = true;
+  // };
 </script>
 
 <style scoped lang="scss">
